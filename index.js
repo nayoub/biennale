@@ -23,7 +23,6 @@
 
   // Grab elements from DOM.
   var panoElement = document.querySelector('#pano');
-  var sceneNameElement = document.querySelector('#titleBar .sceneName');
   var sceneListElement = document.querySelector('#sceneList');
   var sceneElements = document.querySelectorAll('#sceneList .scene');
   var sceneListToggleElement = document.querySelector('#sceneListToggle');
@@ -87,20 +86,6 @@
       view: view,
       pinFirstLevel: true
     });
-
-
-    // Get the hotspot container for scene.
-    var container = scene.hotspotContainer();
-
-    // Create hotspot with different sources.
-    container.createHotspot(document.getElementById('iframespot'), { yaw: 0.0335, pitch: -0.102 },
-      { perspective: { radius: 1640, extraTransforms: "rotateX(5deg)" }});
-    container.createHotspot(document.getElementById('iframeselect'), { yaw: -0.35, pitch: -0.239 });
-
-    // HTML sources.
-var hotspotHtml = {
-  youtube: '<iframe id="youtube" width="1280" height="480" src="https://www.youtube.com/watch?v=SrVCloReDAI?rel=0&amp;controls=0&amp;showinfo=0&amp;" frameborder="0" allowfullscreen></iframe>',
-};
 
     // Create link hotspots.
     data.linkHotspots.forEach(function(hotspot) {
@@ -317,14 +302,6 @@ var hotspotHtml = {
     icon.classList.add('info-hotspot-icon');
     iconWrapper.appendChild(icon);
 
-    // Create title element.
-    var titleWrapper = document.createElement('div');
-    titleWrapper.classList.add('info-hotspot-title-wrapper');
-    var title = document.createElement('div');
-    title.classList.add('info-hotspot-title');
-    title.innerHTML = hotspot.title;
-    titleWrapper.appendChild(title);
-
     // Create close element.
     var closeWrapper = document.createElement('div');
     closeWrapper.classList.add('info-hotspot-close-wrapper');
@@ -335,7 +312,6 @@ var hotspotHtml = {
 
     // Construct header element.
     header.appendChild(iconWrapper);
-    header.appendChild(titleWrapper);
     header.appendChild(closeWrapper);
 
     // Create text element.

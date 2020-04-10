@@ -2,7 +2,7 @@ var APP_DATA = {
   "scenes": [
     {
       "id": "0-test-3",
-      "name": "test 3",
+      "name": "Biennale",
       "levels": [
         {
           "tileSize": 256,
